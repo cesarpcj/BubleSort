@@ -1,15 +1,49 @@
-﻿namespace Bubble_Sort_APP
+﻿namespace Bubble_Sort_APP;
+
+public class Program
 {
-    public class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
+        
+    }
 
+    public static int[] BubleSort(int[] intArr)
+    {
+        if (intArr == null) throw new ArgumentNullException();
+
+        int swapValue = 0;
+        for (int i = 0; i < intArr.Length - 1; i++)
+        {
+            if (intArr[i] > intArr[i + 1])
+            {
+                swapValue = intArr[i];
+                intArr[i] = intArr[i + 1];
+                intArr[i + 1] = swapValue;
+                i -= 2;
+                if (i < -1) i = -1; // So, I is never negative upon use...
+            }
         }
 
-        public static void BubleSort(int[] numList)
-        {
+        return intArr;
+    }
 
+    public static int[] BubleSort2(int[] arr1, int[] arr2)
+    {
+        if (arr1 == null || arr2 == null) throw new ArgumentNullException();
+        else if (arr1.Length == 0 && arr2.Length == 0) return new int[] { };
+
+        int[] resultArr = new int[arr1.Length + arr2.Length];
+
+        for (int i = 0; i < arr1.Length; i++)
+        {
+            resultArr[i] = arr1[i];
         }
+
+        for (int i = 0; i < arr2.Length; i++)
+        {
+            resultArr[arr1.Length + i] = arr2[i];
+        }
+
+        return BubleSort(resultArr); ;
     }
 }
