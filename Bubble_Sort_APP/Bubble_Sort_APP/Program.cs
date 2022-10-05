@@ -50,4 +50,29 @@ public class Program
 
         return BubleSort(resultArr); ;
     }
+
+
+    public static int[] MergeSort(int[] num)
+    {
+        //int[] result = new int[num.Length];
+        if(num.Length == 1)
+        {
+            return num;
+        }
+        else
+        {
+            //split the array
+            int[] leftArray = num.Take(num.Length/2).ToArray();
+            int[] rightArray = num.Sk(num.Length/2).ToArray();
+
+            //merge sort left
+            //merge sort right
+
+            //merge both arrays
+
+            //return merged array
+        }
+
+        return result;
+    }
 }
