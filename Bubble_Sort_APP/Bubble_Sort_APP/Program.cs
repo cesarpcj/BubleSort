@@ -4,12 +4,12 @@ public class Program
 {
     static void Main()
     {
-        cw
-    }
 
+    }
     public static int[] BubleSort(int[] intArr)
     {
         if (intArr == null) throw new ArgumentNullException();
+        if (intArr.Length <= 0) throw new ArgumentOutOfRangeException();
 
         int swapValue = 0;
         bool isDone = false;
@@ -54,26 +54,68 @@ public class Program
 
     public static int[] MergeSort(int[] num)
     {
-        //int[] result = new int[num.Length];
+        int[] result = new int[num.Length];
         if(num.Length == 1)
         {
             return num;
         }
         else
         {
-           
-            int[] leftArray = num.Take(num.Length/2).ToArray();
-            int[] rightArray = num.Skip(num.Length/2).ToArray();
+            int[] lArray = num.Take(num.Length/2).ToArray();
+            int[] rArray = num.Skip(num.Length/2).ToArray();
 
-            var a=MergeSort(leftArray);
-            
-            var b =MergeSort(rightArray);
-            
-            var c = a.Concat(b).ToArray();
+            var lTemp = MergeSort(lArray);
+            var rTemp = MergeSort(rArray);
 
-            return c;
+            #region Mess...
+            //int lIndex = 0; int rIndex = 0; int resultIndex = 0;
+            //int smallLValue = 0; int smallRValue = 0;
+
+            //int lIndexTemp = 0;
+            //while (lTemp.Length > lIndex || rTemp.Length > rIndex)
+            //{
+            //    lIndexTemp = lIndex;
+
+            //    lIndex = 0;
+            //    // Smallest in lArr...
+            //    for(int i = 0; i < lTemp.Length; i++)
+            //    {
+            //        if (lTemp[lIndex] > lTemp[i])
+            //        {
+            //            smallLValue = lTemp[i];
+            //            lTemp[i] = int.MaxValue;
+            //        }
+            //        else
+            //        {
+            //            smallLValue = lTemp[lIndex];
+            //            lTemp[lIndex] = int.MaxValue;
+            //        }
+            //    }
+
+            //    lIndex = 0;
+            //    // Smallest in rArr...
+            //    for (int i = 0; i < rTemp.Length; i++)
+            //    {
+            //        if (rTemp[lIndex] > rTemp[i])
+            //        {
+            //            smallRValue = rTemp[i];
+            //            rTemp[i] = int.MaxValue;
+            //        }
+            //        else
+            //        {
+            //            smallRValue = rTemp[lIndex];
+            //            rTemp[lIndex] = int.MaxValue;
+            //        }
+            //    }
+
+            //    lIndex.t
+            //    if (smallLValue > smallRValue)
+            //    {
+            //        result[]
+            //    } 
+            #endregion
+
+            return BubleSort2(lTemp, rTemp);
         }
-
-        
     }
 }
