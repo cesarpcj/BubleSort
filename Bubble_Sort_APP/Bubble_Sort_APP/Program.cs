@@ -4,7 +4,7 @@ public class Program
 {
     static void Main()
     {
-        
+        cw
     }
 
     public static int[] BubleSort(int[] intArr)
@@ -61,18 +61,19 @@ public class Program
         }
         else
         {
-            //split the array
+           
             int[] leftArray = num.Take(num.Length/2).ToArray();
-            int[] rightArray = num.Sk(num.Length/2).ToArray();
+            int[] rightArray = num.Skip(num.Length/2).ToArray();
 
-            //merge sort left
-            //merge sort right
+            var a=MergeSort(leftArray);
+            
+            var b =MergeSort(rightArray);
+            
+            var c = a.Concat(b).ToArray();
 
-            //merge both arrays
-
-            //return merged array
+            return c;
         }
 
-        return result;
+        
     }
 }
