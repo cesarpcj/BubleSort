@@ -12,15 +12,19 @@ public class Program
         if (intArr == null) throw new ArgumentNullException();
 
         int swapValue = 0;
-        for (int i = 0; i < intArr.Length - 1; i++)
+        bool isDone = false;
+        while (!isDone)
         {
-            if (intArr[i] > intArr[i + 1])
+            isDone = true;
+            for (int i = 0; i < intArr.Length - 1; i++)
             {
-                swapValue = intArr[i];
-                intArr[i] = intArr[i + 1];
-                intArr[i + 1] = swapValue;
-                i -= 2;
-                if (i < -1) i = -1; // So, I is never negative upon use...
+                if (intArr[i] > intArr[i + 1])
+                {
+                    swapValue = intArr[i];
+                    intArr[i] = intArr[i + 1];
+                    intArr[i + 1] = swapValue;
+                    isDone = false;
+                }
             }
         }
 

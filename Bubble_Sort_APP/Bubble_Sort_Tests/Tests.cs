@@ -14,7 +14,7 @@ public class Tests
 
     [TestCase(new int[] { 5, 2, 5, 7, 12 }, new int[] { 2, 5, 5, 7, 12 })]
     [TestCase(new int[] { 8, 22, 15, 40, 65 }, new int[] { 8, 15, 22, 40, 65 })]
-    [TestCase(new int[] { 500, 100, 1002, 750 }, new int[] { 100, 500, 750, 1002 })]
+    [TestCase(new int[] { 500, 100, 1002, 750, 1 }, new int[] {1, 100, 500, 750, 1002 })]
     public void GivenAnIntArray_BubleSort_Returns_SortedArray(int[] inputArr, int[] outputArr)
     {
         Assert.That(Program.BubleSort(inputArr), Is.EqualTo(outputArr));
